@@ -21,3 +21,4 @@ interface IShapes {
    public function color($color);
 
 }
+?>

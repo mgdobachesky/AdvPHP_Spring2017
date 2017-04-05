@@ -5,7 +5,7 @@
   *
   * @author mike91doby
   */
-class DBAddress extends DB {
+class DBAddress extends DB implements iCrud {
 
     // call the parent constructor to establish a database connection upon class creation
     function __construct() {
@@ -26,7 +26,7 @@ class DBAddress extends DB {
      *
      * @return boolean
      */
-    public function addAddress($fullName, $email, $addressLine1, $city, $state, $zip, $birthday) {
+    public function create($fullName, $email, $addressLine1, $city, $state, $zip, $birthday) {
 
       // open database connection
       $db = $this->getDb();
@@ -57,11 +57,21 @@ class DBAddress extends DB {
 
 
     /**
+     * A method to get data for an address
+     *
+     * @return void
+     */
+    public function read() {
+
+    }
+
+
+    /**
      * A method to get all address data
      *
      * @return array
      */
-    public function getAllAddress() {
+    public function readAll() {
 
       //initialize an array to hold the results
       $results = array();
@@ -79,6 +89,26 @@ class DBAddress extends DB {
 
       // return results reguardless of its contents
       return $results;
+    }
+
+
+    /**
+     * A method to update data for an address
+     *
+     * @return void
+     */
+    public function update() {
+
+    }
+
+
+    /**
+     * A method to delete an address
+     *
+     * @return void
+     */
+    public function delete() {
+
     }
 
 }

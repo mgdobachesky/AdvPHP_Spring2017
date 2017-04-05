@@ -61,7 +61,7 @@ if($utilities->isPostRequest()) {
   if(!count($errors)) {
 
     // try to add the address
-    if($dbAddress->addAddress($fullName, $email, $addressLine1, $city, $state, $zip, $birthday)) {
+    if($dbAddress->create($fullName, $email, $addressLine1, $city, $state, $zip, $birthday)) {
       // set message to success
       $message = 'Address added!';
 

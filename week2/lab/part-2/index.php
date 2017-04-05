@@ -10,7 +10,7 @@ require_once './autoload.php';
 $dbAddress = new DBAddress();
 
 // get addresses from database
-$addresses = $dbAddress->getAllAddress();
+$addresses = $dbAddress->readAll();
 
 // add in required views
 include './templates/view-address.html.php';
