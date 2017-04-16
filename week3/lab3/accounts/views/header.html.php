@@ -10,19 +10,19 @@
     </head>
 
     <body>
-      <div class="container-fluid">
-        <div class="col-md-12">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <a class="navbar-brand" href="./signup.php">Michael Dobachesky - Lab 3</a>
-              </div>
-              <ul class="nav navbar-nav">
-                <li><a href="./signup.php">Signup</a></li>
-                <li><a href="./login.php">Login</a></li>
-                <li><a href="./admin.php">Admin</a></li>
-              </ul>
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="./signup.php">Michael Dobachesky - Lab 3</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="./signup.php">Signup</a></li>
+                            <li><a href="./login.php">Login</a></li>
+                            <li><a href="./admin.php">Admin</a></li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-          </nav>
-        </div>
-        <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-10 col-md-offset-1">

@@ -1,6 +1,4 @@
 <?php
-//start the session
-session_start();
 
 // include page that will only allow logged in users to continue
 include './views/sessionAccess.html.php';
@@ -15,9 +13,9 @@ $accounts = new Accounts();
 include './views/header.html.php';
 
 // process the page if the user clicked logout
-if($util->isPostRequest()) {
-  session_destroy();
-  $util->redirect("login.php");
+if ($util->isPostRequest()) {
+    session_destroy();
+    $util->redirect("login.php");
 }
 
 // include views after appropriate data has been processed

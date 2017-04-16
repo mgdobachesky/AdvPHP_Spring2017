@@ -1,4 +1,5 @@
 <?php
+
 // start the session
 session_start();
 
@@ -11,28 +12,33 @@ include './autoload.php';
 $util = new Util();
 $accounts = new Accounts();
 
-// get the email and password typed in by user
-$email = filter_input(INPUT_POST, 'email');
-$password = filter_input(INPUT_POST, 'password');
-
 // set up model data for views to display
 $errors = [];
 $message = '';
 
+// get GET values
+$email = $util->getUrlParam('email');
+$message = $util->getUrlParam('message');
+
 // process the credentials if the user just submitted the form
-if($util->isPostRequest()) {
-  $loginInfo = $accounts->login($email, $password);
+if ($util->isPostRequest()) {
+    // get the email and password typed in by user
+    $postArray = $util->getPostValues();
+    $email = $postArray['email'];
+    $password = $postArray['password'];
 
-  if($loginInfo > 0) {
-    $message = "Successfully logged in!";
-    $_SESSION['user_id'] = $loginInfo;
-    $_SESSION['email'] = $email;
+    $loginInfo = $accounts->login($email, $password);
 
-    // redirect to the admin page
-    $util->redirect("admin.php");
-  } else {
-    $errors[] = "Wrong username or password!";
-  }
+    if ($loginInfo > 0) {
+        $message = "Successfully logged in!";
+        $_SESSION['user_id'] = $loginInfo;
+        $_SESSION['email'] = $email;
+
+        // redirect to the admin page
+        $util->redirect("admin.php");
+    } else {
+        $errors[] = "Wrong username or password!";
+    }
 }
 
 // include views after appropriate data has been processed

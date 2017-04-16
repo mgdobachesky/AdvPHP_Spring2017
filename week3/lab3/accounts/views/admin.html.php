@@ -3,5 +3,5 @@
 <p><strong>Email: </strong><?php echo $_SESSION['email']; ?></p>
 
 <form action="#" method="post">
-  <input type="submit" value="logout" class="btn btn-primary" />
+    <input type="submit" value="logout" class="btn btn-primary" />
 </form>
