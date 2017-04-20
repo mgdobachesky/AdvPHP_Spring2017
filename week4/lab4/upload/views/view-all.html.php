@@ -5,8 +5,8 @@
     <thead>
         <tr>
             <th>File Name</th>
-            <th>View</th>
-            <th>Delete</th>
+            <th class="center">View</th>
+            <th class="center">Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -18,8 +18,8 @@
                 <strong><?php echo ++$fileNumber ?>. </strong>
                 <span><?php echo $file->getFilename(); ?></span>
             </td>
-            <td><a href="./file-read.php?&name=<?php echo $file->getFilename(); ?>"><span class="glyphicon glyphicon-eye-open"></span></a></td>
-            <td><a href="./files.php?action=delete&name=<?php echo $file->getFilename(); ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
+            <td class="center"><a href="./file-read.php?&name=<?php echo $file->getFilename(); ?>"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+            <td class="center"><a href="./files.php?action=delete&name=<?php echo $file->getFilename(); ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
         </tr>
         <?php endif; ?>
     <?php endforeach; ?>
