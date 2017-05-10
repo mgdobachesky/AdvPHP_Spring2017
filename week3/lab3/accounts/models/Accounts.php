@@ -81,10 +81,38 @@ class Accounts extends DB {
     }
 
     /**
-     * A method to check if an email address exists
+     * A method to get a user by an id
      * 
-     * @param type $email
-     * @return boolean
+     * @param type $id
+     * @return array[]
+     */
+    public function getUserById($id) {
+        // open database connection
+        $db = $this->getDB();
+
+        // write sql statement
+        $statement = $db->prepare("SELECT * FROM users WHERE user_id = :id LIMIT 1");
+
+        // bind the prepared statement arguments
+        $binds = array(
+            ":id" => $id
+        );
+
+        // return data if a user account exists
+        if ($statement->execute($binds) && $statement->rowCount() > 0) {
+            $results = $statement->fetch(PDO::FETCH_ASSOC);
+            
+            return $results;
+        }
+        
+        return [];
+    }
+    
+    /**
+     * A method to get a user by an id
+     * 
+     * @param type $id
+     * @return array[]
      */
     public function emailExists($email) {
         // open database connection
@@ -98,12 +126,11 @@ class Accounts extends DB {
             ":email" => $email
         );
 
-        // return true if a user account exists
+        // return data if a user account exists
         if ($statement->execute($binds) && $statement->rowCount() > 0) {
             return true;
         }
-
-        // return false by default
+        
         return false;
     }
 

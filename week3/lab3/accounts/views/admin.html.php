@@ -1,7 +1,5 @@
 <h1>Admin</h1>
-<p><strong>User ID: </strong><?php echo $_SESSION['user_id']; ?></p>
-<p><strong>Email: </strong><?php echo $_SESSION['email']; ?></p>
+<p><strong>User ID: </strong><?php echo $user['user_id']; ?></p>
+<p><strong>Email: </strong><?php echo $user['email'] ?></p>
 
-<form action="#" method="post">
-    <input type="submit" value="logout" class="btn btn-primary" />
-</form>
+<a href="./admin.php?action=logout"><button type="button" class="btn btn-danger">Logout</button></a>

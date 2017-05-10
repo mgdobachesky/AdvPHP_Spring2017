@@ -1,5 +1,4 @@
 <?php
-
 // start the session
 session_start();
 
@@ -32,7 +31,6 @@ if ($util->isPostRequest()) {
     if ($loginInfo > 0) {
         $message = "Successfully logged in!";
         $_SESSION['user_id'] = $loginInfo;
-        $_SESSION['email'] = $email;
 
         // redirect to the admin page
         $util->redirect("admin.php");
