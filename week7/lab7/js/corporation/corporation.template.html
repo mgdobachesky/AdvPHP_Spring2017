@@ -1,0 +1,29 @@
+<h1>Corporation Table</h1>
+
+<div class="content">
+    <h3>Search: <input ng-model="searchText"></h3>
+    
+    <br />
+    <br />
+    
+    <div class="alert alert-info" ng-if="vm.message.length > 0">{{vm.message}}</div>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Corporation</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <tr ng-repeat="corporation in vm.corporations | filter:searchText">
+            <td>{{corporation.corp}}</td>
+            <td>{{corporation.email}}</td>
+            <td><a ng-href="#/corporation/{{corporation.id}}"><button class="btn btn-link">View</button></a></td>
+            <td><button class="btn btn-danger" ng-click="vm.deleteCorporation(corporation.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>

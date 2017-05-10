@@ -1,0 +1,14 @@
+<h1>Corporation Details</h1>
+
+<div class="content">
+    <h2>{{vm.corporation.corp || uppercase}}</h2>
+    
+    <p><strong>Incorporated On: </strong>{{vm.corporation.incorp_dt | date:'longDate'}}</p>
+    <p><strong>Owner: </strong>{{vm.corporation.owner}}</p>
+    <p><strong>Email: </strong><a href="" ng-href="mailto:{{vm.corporation.email}}">{{vm.corporation.email}}</a></p>
+    <p><strong>Phone: </strong><a href="" ng-href="tel:{{vm.corporation.phone}}">{{vm.corporation.phone}}</a></p>
+    
+    <div class="embed-responsive embed-responsive-16by9">
+        <div class="googleMap embed-responsive-item"></div>
+    </div>
+</div>
