@@ -45,7 +45,7 @@ try {
      */
     if ( 'address' === $resource ) {
         
-        $resourceData = new AddressResoruce();
+        $resourceData = new AddressResource();
         
         if ( 'GET' === $verb ) {
             
@@ -86,21 +86,20 @@ try {
         if ( 'POST' !== $verb ) {
             throw new InvalidArgumentException($resource . ' Login Must Be Post Request');
         }
-            // get the email and password typed in by user
-            $email = $serverData['email'];
-            $password = $serverData['password'];
+        
+        // get the email and password typed in by user
+        $email = $serverData['email'];
+        $password = $serverData['password'];
 
-            $loginInfo = $accounts->login($email, $password);
-            if ($loginInfo > 0) {
-                $restServer->setData(array("token" => $jwt->generateJWT(array("email"=>$email), $secrect_key)));
-            } else {
-                throw new InvalidArgumentException($resource . ' Resource Not Found');
-            }
-            
-               
+        $loginInfo = $accounts->login($email, $password);
+        if ($loginInfo > 0) {
+            $restServer->setData(array("token" => $jwt->generateJWT(array("email"=>$email), $secrect_key)));
+        } else {
+            throw new InvalidArgumentException($resource . ' Resource Not Found');
+        }
+        
     } else {
         throw new InvalidArgumentException($resource . ' Resource Not Found');
-        
     }
    
     
