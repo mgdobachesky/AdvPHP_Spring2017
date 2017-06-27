@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title></title>
     </head>
+    <!-- Used to test API connection -->
     <body>
         <style type="text/css">
             textarea {
